@@ -1,69 +1,99 @@
-import Image from "next/image";
-
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      {/* Шапка */}
+      <header className="bg-white">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+          <p className="text-2xl font-bold text-[#1a2a52]">BOXPACK</p>
+          <nav className="hidden gap-6 text-sm text-[#1a2a52] md:flex">
+            <a href="#steps">Как начать</a>
+            <a href="#services">Услуги</a>
+            <a href="#why">Почему мы</a>
+            <a href="#contacts">Контакты</a>
+          </nav>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </header>
+
+      {/* Первый экран */}
+      <section className="bg-[#1a2a52] text-white">
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 lg:grid-cols-2 lg:items-center">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#8fb3f5]">Фулфилмент</p>
+            <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl">
+              Фулфилмент,<br />который держит<br />сроки и репутацию
+            </h1>
+            <p className="mt-5 max-w-md text-sm text-white/70">
+              Принимаем товар, храним, собираем заказы и передаём в доставку.
+            </p>
+            <div className="mt-6 flex flex-wrap items-center gap-6">
+              <a href="#steps" className="text-sm text-[#8fb3f5] underline underline-offset-4">Как это работает</a>
+              <a href="#contacts" className="rounded-[10px] bg-[#2f6fdb] px-6 py-3 text-sm font-semibold">Оставить заявку</a>
+            </div>
+            <div className="mt-8 grid gap-4 sm:grid-cols-3">
+              {[["500+", "магазинов"], ["24/7", "обработка"], ["99%", "в срок"]].map(([n, t]) => (
+                <div key={n} className="rounded-[10px] bg-white/10 p-4">
+                  <p className="text-2xl font-bold">{n}</p>
+                  <p className="mt-1 text-xs text-white/70">{t}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="flex aspect-video items-center justify-center rounded-[10px] bg-[#24365f] text-sm text-white/50">
+            Видео о складе
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Как начать работать с нами */}
+      <section id="steps" className="bg-white">
+        <div className="mx-auto max-w-6xl px-4 py-16">
+          <h2 className="text-center text-2xl font-bold text-[#1a2a52] sm:text-3xl">Как начать работать с нами</h2>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {["Оставляете заявку", "Получаете расчёт", "Заключаем договор", "Передаёте товар", "Принимаем на склад", "Настраиваем интеграцию", "Отгружаем заказы"].map((t, i) => (
+              <div key={t} className="rounded-[10px] bg-[#f0f0f0] p-5">
+                <p className="text-xs font-bold text-[#1a2a52]">ШАГ {i + 1}</p>
+                <h3 className="mt-2 text-xs font-semibold text-[#1a2a52]">{t}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Услуги фулфилмента */}
+      <section id="services" className="bg-[#f7f8fa]">
+        <div className="mx-auto max-w-6xl px-4 py-16">
+          <h2 className="text-center text-2xl font-bold text-[#1a2a52] sm:text-3xl">Услуги фулфилмента</h2>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {["Приёмка товара", "Хранение", "Сборка заказов", "Упаковка", "Маркировка", "Отгрузка и доставка", "Возвраты"].map((t) => (
+              <div key={t} className="border-t-2 border-[#2f6fdb] bg-white p-5 shadow-sm">
+                <h3 className="text-sm font-bold text-[#1a2a52]">{t}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Почему выбирают BOXPACK */}
+      <section id="why" className="bg-[#1a2a52] text-white">
+        <div className="mx-auto max-w-6xl px-4 py-16">
+          <h2 className="text-center text-2xl font-bold sm:text-3xl">Почему выбирают BOXPACK</h2><div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {["Скорость", "Прозрачность", "Надёжность", "Поддержка"].map((t) => (
+              <div key={t} className="rounded-[10px] bg-white/10 p-5">
+                <h3 className="text-sm font-bold">{t}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Подвал */}
+      <footer id="contacts" className="bg-[#111d3a] text-white">
+        <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-8 text-sm sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-lg font-bold">BOXPACK</p>
+          <p className="text-white/60">Оставьте заявку — рассчитаем стоимость.</p>
+          <a href="mailto:info@boxpack.ru" className="rounded-[10px] bg-[#2f6fdb] px-5 py-2.5 text-center font-semibold">Написать нам</a>
+        </div>
+      </footer>
+    </>
   );
 }
